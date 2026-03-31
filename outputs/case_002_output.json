@@ -1,0 +1,111 @@
+{
+  "case_id": "case_002",
+  "requested_service": "Outpatient physical therapy evaluation and treatment",
+  "automated_status": "MISSING_INFO",
+  "readiness_status": "MISSING_INFO",
+  "missing_items": [
+    {
+      "item_key": "clinical_notes_present",
+      "label": "Clinical notes flag",
+      "item_type": "field",
+      "reason": "A therapy request should include supporting evaluation notes."
+    },
+    {
+      "item_key": "pt_referral",
+      "label": "PT referral attachment",
+      "item_type": "document",
+      "reason": "The referring order should be attached before the packet is complete."
+    },
+    {
+      "item_key": "clinical_notes",
+      "label": "Supporting clinical notes attachment",
+      "item_type": "document",
+      "reason": "Supporting notes are needed to describe functional need and prior care."
+    }
+  ],
+  "escalation_reason": null,
+  "human_review_decision": {
+    "action": "CONFIRM_MISSING_INFO",
+    "reviewer": "Mock Operations Reviewer",
+    "rationale": "Supporting notes and the PT referral should be collected before submission."
+  },
+  "recommended_next_action": "Request the missing fields or attachments before the case is submitted.",
+  "summary_paragraph": "Case case_002 is not ready for submission. Missing items include Clinical notes flag, PT referral attachment, Supporting clinical notes attachment, and human review confirmed the missing-information route before handoff.",
+  "trace_log": [
+    {
+      "step_index": 1,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "ingest_case",
+      "message": "Loaded mock case case_002 for Outpatient physical therapy evaluation and treatment.",
+      "status": null,
+      "details": {
+        "case_type": "OUTPATIENT_PT_AUTH"
+      }
+    },
+    {
+      "step_index": 2,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "load_rules",
+      "message": "Loaded rule set for OUTPATIENT_PT_AUTH.",
+      "status": null,
+      "details": {
+        "required_fields": 5,
+        "required_documents": 2
+      }
+    },
+    {
+      "step_index": 3,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "validate_case",
+      "message": "Completed 7 required checks; 4 passed and 3 missing item(s) were identified.",
+      "status": null,
+      "details": {
+        "missing_labels": [
+          "Clinical notes flag",
+          "PT referral attachment",
+          "Supporting clinical notes attachment"
+        ]
+      }
+    },
+    {
+      "step_index": 4,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "determine_status",
+      "message": "Automated classification set to MISSING_INFO.",
+      "status": "MISSING_INFO",
+      "details": {
+        "escalation_reasons": []
+      }
+    },
+    {
+      "step_index": 5,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "prepare_missing_info_packet",
+      "message": "Prepared review packet for automated status MISSING_INFO.",
+      "status": "MISSING_INFO",
+      "details": {}
+    },
+    {
+      "step_index": 6,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "human_review",
+      "message": "Human reviewer selected CONFIRM_MISSING_INFO.",
+      "status": "MISSING_INFO",
+      "details": {
+        "action": "CONFIRM_MISSING_INFO",
+        "reviewer": "Mock Operations Reviewer",
+        "rationale": "Supporting notes and the PT referral should be collected before submission."
+      }
+    },
+    {
+      "step_index": 7,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "finalize_handoff",
+      "message": "Created final handoff summary with status MISSING_INFO.",
+      "status": "MISSING_INFO",
+      "details": {
+        "recommended_next_action": "Request the missing fields or attachments before the case is submitted."
+      }
+    }
+  ]
+}

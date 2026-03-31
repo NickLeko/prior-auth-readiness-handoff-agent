@@ -1,0 +1,88 @@
+{
+  "case_id": "case_001",
+  "requested_service": "MRI lumbar spine without contrast",
+  "automated_status": "READY",
+  "readiness_status": "READY",
+  "missing_items": [],
+  "escalation_reason": null,
+  "human_review_decision": {
+    "action": "APPROVE_READY",
+    "reviewer": "Mock Operations Reviewer",
+    "rationale": "Packet is complete and ready for payer submission after coordinator sign-off."
+  },
+  "recommended_next_action": "Submit the prior auth packet to the payer queue after coordinator sign-off.",
+  "summary_paragraph": "Case case_001 for MRI lumbar spine without contrast is complete under the configured readiness rules. Human review approved the packet as ready, and the next administrative step is payer submission.",
+  "trace_log": [
+    {
+      "step_index": 1,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "ingest_case",
+      "message": "Loaded mock case case_001 for MRI lumbar spine without contrast.",
+      "status": null,
+      "details": {
+        "case_type": "MRI_LUMBAR_SPINE"
+      }
+    },
+    {
+      "step_index": 2,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "load_rules",
+      "message": "Loaded rule set for MRI_LUMBAR_SPINE.",
+      "status": null,
+      "details": {
+        "required_fields": 6,
+        "required_documents": 2
+      }
+    },
+    {
+      "step_index": 3,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "validate_case",
+      "message": "Completed 9 required checks; 9 passed and 0 missing item(s) were identified.",
+      "status": null,
+      "details": {
+        "missing_labels": []
+      }
+    },
+    {
+      "step_index": 4,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "determine_status",
+      "message": "Automated classification set to READY.",
+      "status": "READY",
+      "details": {
+        "escalation_reasons": []
+      }
+    },
+    {
+      "step_index": 5,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "prepare_ready_packet",
+      "message": "Prepared review packet for automated status READY.",
+      "status": "READY",
+      "details": {}
+    },
+    {
+      "step_index": 6,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "human_review",
+      "message": "Human reviewer selected APPROVE_READY.",
+      "status": "READY",
+      "details": {
+        "action": "APPROVE_READY",
+        "reviewer": "Mock Operations Reviewer",
+        "rationale": "Packet is complete and ready for payer submission after coordinator sign-off."
+      }
+    },
+    {
+      "step_index": 7,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "finalize_handoff",
+      "message": "Created final handoff summary with status READY.",
+      "status": "READY",
+      "details": {
+        "recommended_next_action": "Submit the prior auth packet to the payer queue after coordinator sign-off."
+      }
+    }
+  ]
+}

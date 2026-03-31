@@ -1,0 +1,60 @@
+[
+  {
+    "case_id": "case_001",
+    "case_type": "MRI_LUMBAR_SPINE",
+    "patient_age_group": "adult",
+    "service_requested": "MRI lumbar spine without contrast",
+    "ordering_provider": "Dr. Morgan Lee",
+    "payer": "NorthRiver Health PPO",
+    "diagnosis_code_present": true,
+    "clinical_notes_present": true,
+    "imaging_order_present": true,
+    "prior_conservative_therapy_documented": true,
+    "location_of_service": "Hospital outpatient imaging",
+    "urgency": "Routine",
+    "attached_documents": [
+      "clinical_notes",
+      "imaging_order",
+      "conservative_therapy_summary"
+    ],
+    "free_text_notes": "Persistent low back pain after physical therapy and NSAID trial. Administrative packet appears complete."
+  },
+  {
+    "case_id": "case_002",
+    "case_type": "OUTPATIENT_PT_AUTH",
+    "patient_age_group": "adult",
+    "service_requested": "Outpatient physical therapy evaluation and treatment",
+    "ordering_provider": "Dr. Ana Patel",
+    "payer": "Blue Summit Commercial",
+    "diagnosis_code_present": true,
+    "clinical_notes_present": false,
+    "imaging_order_present": false,
+    "prior_conservative_therapy_documented": false,
+    "location_of_service": "Community rehab clinic",
+    "urgency": "Routine",
+    "attached_documents": [
+      "benefits_summary"
+    ],
+    "free_text_notes": "Referral was started after a knee pain follow-up, but the therapy packet was submitted without supporting notes or referral attachment."
+  },
+  {
+    "case_id": "case_003",
+    "case_type": "CT_ABDOMEN_CONTRAST",
+    "patient_age_group": "adult",
+    "service_requested": "CT abdomen with contrast",
+    "ordering_provider": "Dr. Elena Ruiz",
+    "payer": "Apex Exchange",
+    "diagnosis_code_present": true,
+    "clinical_notes_present": true,
+    "imaging_order_present": true,
+    "prior_conservative_therapy_documented": false,
+    "location_of_service": "Hospital outpatient radiology",
+    "urgency": "STAT",
+    "attached_documents": [
+      "clinical_notes",
+      "ct_order",
+      "contrast_screening"
+    ],
+    "free_text_notes": "Urgent abdominal pain workup. Packet is complete enough to submit, but this route is configured for manual handling."
+  }
+]

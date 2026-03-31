@@ -1,0 +1,91 @@
+{
+  "case_id": "case_003",
+  "requested_service": "CT abdomen with contrast",
+  "automated_status": "ESCALATE_TO_HUMAN",
+  "readiness_status": "ESCALATE_TO_HUMAN",
+  "missing_items": [],
+  "escalation_reason": "STAT contrast CT requests are routed to manual handling in this prototype. Apex Exchange is configured as a manual-handling payer in this mock workflow.",
+  "human_review_decision": {
+    "action": "ESCALATE",
+    "reviewer": "Mock Operations Reviewer",
+    "rationale": "Urgent contrast imaging for this payer is configured for manual handling."
+  },
+  "recommended_next_action": "Route the case to a human utilization management or prior auth coordinator for manual handling.",
+  "summary_paragraph": "Case case_003 requires manual handling. Human review escalated the request because STAT contrast CT requests are routed to manual handling in this prototype. Apex Exchange is configured as a manual-handling payer in this mock workflow.",
+  "trace_log": [
+    {
+      "step_index": 1,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "ingest_case",
+      "message": "Loaded mock case case_003 for CT abdomen with contrast.",
+      "status": null,
+      "details": {
+        "case_type": "CT_ABDOMEN_CONTRAST"
+      }
+    },
+    {
+      "step_index": 2,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "load_rules",
+      "message": "Loaded rule set for CT_ABDOMEN_CONTRAST.",
+      "status": null,
+      "details": {
+        "required_fields": 6,
+        "required_documents": 3
+      }
+    },
+    {
+      "step_index": 3,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "validate_case",
+      "message": "Completed 9 required checks; 9 passed and 0 missing item(s) were identified.",
+      "status": null,
+      "details": {
+        "missing_labels": []
+      }
+    },
+    {
+      "step_index": 4,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "determine_status",
+      "message": "Automated classification set to ESCALATE_TO_HUMAN.",
+      "status": "ESCALATE_TO_HUMAN",
+      "details": {
+        "escalation_reasons": [
+          "STAT contrast CT requests are routed to manual handling in this prototype.",
+          "Apex Exchange is configured as a manual-handling payer in this mock workflow."
+        ]
+      }
+    },
+    {
+      "step_index": 5,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "prepare_escalation_packet",
+      "message": "Prepared review packet for automated status ESCALATE_TO_HUMAN.",
+      "status": "ESCALATE_TO_HUMAN",
+      "details": {}
+    },
+    {
+      "step_index": 6,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "human_review",
+      "message": "Human reviewer selected ESCALATE.",
+      "status": "ESCALATE_TO_HUMAN",
+      "details": {
+        "action": "ESCALATE",
+        "reviewer": "Mock Operations Reviewer",
+        "rationale": "Urgent contrast imaging for this payer is configured for manual handling."
+      }
+    },
+    {
+      "step_index": 7,
+      "timestamp": "2026-03-31T13:42:25-07:00",
+      "node": "finalize_handoff",
+      "message": "Created final handoff summary with status ESCALATE_TO_HUMAN.",
+      "status": "ESCALATE_TO_HUMAN",
+      "details": {
+        "recommended_next_action": "Route the case to a human utilization management or prior auth coordinator for manual handling."
+      }
+    }
+  ]
+}

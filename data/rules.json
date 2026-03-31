@@ -1,0 +1,197 @@
+{
+  "MRI_LUMBAR_SPINE": {
+    "case_type": "MRI_LUMBAR_SPINE",
+    "service_requested": "MRI lumbar spine without contrast",
+    "required_fields": [
+      {
+        "key": "ordering_provider",
+        "label": "Ordering provider",
+        "reason": "A named ordering clinician is required before the case can be handed off."
+      },
+      {
+        "key": "location_of_service",
+        "label": "Location of service",
+        "reason": "The site of care must be known for the authorization packet."
+      },
+      {
+        "key": "payer",
+        "label": "Payer",
+        "reason": "The case must identify the target health plan."
+      },
+      {
+        "key": "diagnosis_code_present",
+        "label": "Diagnosis or supporting indication",
+        "reason": "The packet needs a diagnosis or supporting indication on file.",
+        "must_be_truthy": true
+      },
+      {
+        "key": "clinical_notes_present",
+        "label": "Clinical notes flag",
+        "reason": "Clinical notes are required to support medical necessity documentation.",
+        "must_be_truthy": true
+      },
+      {
+        "key": "imaging_order_present",
+        "label": "Imaging order flag",
+        "reason": "The imaging order must be documented before submission.",
+        "must_be_truthy": true
+      }
+    ],
+    "required_documents": [
+      {
+        "key": "clinical_notes",
+        "label": "Clinical notes attachment",
+        "reason": "The payer packet needs uploadable clinical notes."
+      },
+      {
+        "key": "imaging_order",
+        "label": "Imaging order attachment",
+        "reason": "The imaging order should be attached to the request packet."
+      }
+    ],
+    "conditional_requirements": [
+      {
+        "when_field": "urgency",
+        "operator": "not_equals",
+        "value": "STAT",
+        "key": "prior_conservative_therapy_documented",
+        "label": "Conservative therapy documented",
+        "reason": "Non-urgent lumbar MRI requests usually need documentation of attempted conservative therapy.",
+        "item_type": "field",
+        "must_be_truthy": true
+      }
+    ],
+    "escalation_conditions": [
+      {
+        "field": "urgency",
+        "operator": "equals",
+        "value": "STAT",
+        "reason": "Urgent MRI requests should be routed to a human coordinator before submission."
+      },
+      {
+        "field": "patient_age_group",
+        "operator": "equals",
+        "value": "pediatric",
+        "reason": "Pediatric advanced imaging cases are configured for manual handling in this prototype."
+      }
+    ]
+  },
+  "OUTPATIENT_PT_AUTH": {
+    "case_type": "OUTPATIENT_PT_AUTH",
+    "service_requested": "Outpatient physical therapy evaluation and treatment",
+    "required_fields": [
+      {
+        "key": "ordering_provider",
+        "label": "Ordering provider",
+        "reason": "The therapy request needs a named ordering clinician."
+      },
+      {
+        "key": "location_of_service",
+        "label": "Location of service",
+        "reason": "The rehabilitation site must be listed before handoff."
+      },
+      {
+        "key": "payer",
+        "label": "Payer",
+        "reason": "The health plan must be identified before the case is routed."
+      },
+      {
+        "key": "diagnosis_code_present",
+        "label": "Diagnosis or supporting indication",
+        "reason": "The request needs a diagnosis or indication for authorization review.",
+        "must_be_truthy": true
+      },
+      {
+        "key": "clinical_notes_present",
+        "label": "Clinical notes flag",
+        "reason": "A therapy request should include supporting evaluation notes.",
+        "must_be_truthy": true
+      }
+    ],
+    "required_documents": [
+      {
+        "key": "pt_referral",
+        "label": "PT referral attachment",
+        "reason": "The referring order should be attached before the packet is complete."
+      },
+      {
+        "key": "clinical_notes",
+        "label": "Supporting clinical notes attachment",
+        "reason": "Supporting notes are needed to describe functional need and prior care."
+      }
+    ],
+    "conditional_requirements": [],
+    "escalation_conditions": []
+  },
+  "CT_ABDOMEN_CONTRAST": {
+    "case_type": "CT_ABDOMEN_CONTRAST",
+    "service_requested": "CT abdomen with contrast",
+    "required_fields": [
+      {
+        "key": "ordering_provider",
+        "label": "Ordering provider",
+        "reason": "A named ordering clinician is required before handoff."
+      },
+      {
+        "key": "location_of_service",
+        "label": "Location of service",
+        "reason": "The site of care must be identified for authorization routing."
+      },
+      {
+        "key": "payer",
+        "label": "Payer",
+        "reason": "The case must identify the target health plan."
+      },
+      {
+        "key": "diagnosis_code_present",
+        "label": "Diagnosis or supporting indication",
+        "reason": "The request needs an indication on file for payer review.",
+        "must_be_truthy": true
+      },
+      {
+        "key": "clinical_notes_present",
+        "label": "Clinical notes flag",
+        "reason": "Clinical notes are required to support the request.",
+        "must_be_truthy": true
+      },
+      {
+        "key": "imaging_order_present",
+        "label": "CT order flag",
+        "reason": "The CT order must be documented before submission.",
+        "must_be_truthy": true
+      }
+    ],
+    "required_documents": [
+      {
+        "key": "ct_order",
+        "label": "CT order attachment",
+        "reason": "The CT order should be attached to the packet."
+      },
+      {
+        "key": "clinical_notes",
+        "label": "Clinical notes attachment",
+        "reason": "Clinical notes need to be available for payer review."
+      },
+      {
+        "key": "contrast_screening",
+        "label": "Contrast screening attachment",
+        "reason": "A contrast screening form supports safe administrative processing."
+      }
+    ],
+    "conditional_requirements": [],
+    "escalation_conditions": [
+      {
+        "field": "urgency",
+        "operator": "equals",
+        "value": "STAT",
+        "reason": "STAT contrast CT requests are routed to manual handling in this prototype."
+      },
+      {
+        "field": "payer",
+        "operator": "equals",
+        "value": "Apex Exchange",
+        "reason": "Apex Exchange is configured as a manual-handling payer in this mock workflow."
+      }
+    ]
+  }
+}
