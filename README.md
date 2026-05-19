@@ -52,9 +52,9 @@ The core logic is deterministic and configuration-driven. LangGraph handles shar
 
 Sample outputs:
 
-- [case_001_output.json](/Users/nicholasleko/projects/Langraph-agent/outputs/case_001_output.json)
-- [case_002_output.json](/Users/nicholasleko/projects/Langraph-agent/outputs/case_002_output.json)
-- [case_003_output.json](/Users/nicholasleko/projects/Langraph-agent/outputs/case_003_output.json)
+- [case_001_output.json](outputs/case_001_output.json)
+- [case_002_output.json](outputs/case_002_output.json)
+- [case_003_output.json](outputs/case_003_output.json)
 
 ## Where Human-In-The-Loop Appears
 
@@ -74,27 +74,27 @@ That decision is then resumed back into the graph and recorded in the final hand
 
 ## Screenshots
 
-- Home / case selector: [app_home.png](/Users/nicholasleko/projects/Langraph-agent/assets/screenshots/app_home.png)
-- Validation and trace visibility: [validation_trace_case_002.png](/Users/nicholasleko/projects/Langraph-agent/assets/screenshots/validation_trace_case_002.png)
-- Final handoff summary: [final_handoff_case_003.png](/Users/nicholasleko/projects/Langraph-agent/assets/screenshots/final_handoff_case_003.png)
+- Home / case selector: [app_home.png](assets/screenshots/app_home.png)
+- Validation and trace visibility: [validation_trace_case_002.png](assets/screenshots/validation_trace_case_002.png)
+- Final handoff summary: [final_handoff_case_003.png](assets/screenshots/final_handoff_case_003.png)
 
 ## Repo Map
 
-- [app.py](/Users/nicholasleko/projects/Langraph-agent/app.py): one-page Streamlit demo for case selection, automated review, human-in-the-loop review, traces, and final handoff
-- [src/graph.py](/Users/nicholasleko/projects/Langraph-agent/src/graph.py): LangGraph assembly and run helpers
-- [src/nodes.py](/Users/nicholasleko/projects/Langraph-agent/src/nodes.py): workflow nodes, routing prep, and human-in-the-loop pause
-- [src/state.py](/Users/nicholasleko/projects/Langraph-agent/src/state.py): typed shared state
-- [data/sample_cases.json](/Users/nicholasleko/projects/Langraph-agent/data/sample_cases.json): three mock prior auth cases
-- [data/rules.json](/Users/nicholasleko/projects/Langraph-agent/data/rules.json): editable readiness rules and escalation conditions
-- [outputs/](/Users/nicholasleko/projects/Langraph-agent/outputs): saved handoff summaries for the sample cases
-- [docs/architecture.md](/Users/nicholasleko/projects/Langraph-agent/docs/architecture.md): workflow and design explanation
-- [docs/demo_walkthrough.md](/Users/nicholasleko/projects/Langraph-agent/docs/demo_walkthrough.md): demo path and screenshot guidance
-- [docs/scope_and_boundaries.md](/Users/nicholasleko/projects/Langraph-agent/docs/scope_and_boundaries.md): scope lock and safety boundaries
+- [app.py](app.py): one-page Streamlit demo for case selection, automated review, human-in-the-loop review, traces, and final handoff
+- [src/graph.py](src/graph.py): LangGraph assembly and run helpers
+- [src/nodes.py](src/nodes.py): workflow nodes, routing prep, and human-in-the-loop pause
+- [src/state.py](src/state.py): typed shared state
+- [data/sample_cases.json](data/sample_cases.json): three mock prior auth cases
+- [data/rules.json](data/rules.json): editable readiness rules and escalation conditions
+- [outputs/](outputs): saved handoff summaries for the sample cases
+- [docs/architecture.md](docs/architecture.md): workflow and design explanation
+- [docs/demo_walkthrough.md](docs/demo_walkthrough.md): demo path and screenshot guidance
+- [docs/scope_and_boundaries.md](docs/scope_and_boundaries.md): scope lock and safety boundaries
 
 ## Run Locally
 
 ```bash
-cd /Users/nicholasleko/projects/Langraph-agent
+cd Langraph-agent
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt

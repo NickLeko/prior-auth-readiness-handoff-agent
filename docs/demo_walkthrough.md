@@ -43,7 +43,7 @@ streamlit run app.py
 
 Save screenshots in:
 
-- [assets/screenshots](/Users/nicholasleko/projects/Langraph-agent/assets/screenshots)
-- [app_home.png](/Users/nicholasleko/projects/Langraph-agent/assets/screenshots/app_home.png)
-- [validation_trace_case_002.png](/Users/nicholasleko/projects/Langraph-agent/assets/screenshots/validation_trace_case_002.png)
-- [final_handoff_case_003.png](/Users/nicholasleko/projects/Langraph-agent/assets/screenshots/final_handoff_case_003.png)
+- [assets/screenshots](../assets/screenshots)
+- [app_home.png](../assets/screenshots/app_home.png)
+- [validation_trace_case_002.png](../assets/screenshots/validation_trace_case_002.png)
+- [final_handoff_case_003.png](../assets/screenshots/final_handoff_case_003.png)

@@ -6,7 +6,7 @@ This project models a bounded prior authorization readiness workflow for mock ad
 
 ## State Model
 
-The LangGraph state is defined in [src/state.py](/Users/nicholasleko/projects/Langraph-agent/src/state.py).
+The LangGraph state is defined in [src/state.py](../src/state.py).
 
 Core fields:
 
